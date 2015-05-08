@@ -16,6 +16,8 @@ x = x0;
 fx0 = norm(f(x0));
 
 while norm(f(x)) > tol*max(norm(fx0),1e-10)
-    x = x - (df(x))^(-1)*f(x);
+    y = df(x)\f(x);
+    x = x - y;
     nit = nit + 1;
 end
+x=x';
