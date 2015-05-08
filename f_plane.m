@@ -1,11 +1,17 @@
-function [dx dh dv dgamma] = f_plane(t, x, h, v, gamma, T, CL, CD, q, rho)
+function y = f_plane(t, state, T, CL)
 
-setup_params;
+global param;
+%T = param.Tmax;
+%CL = param.CLmax;
 
-L = @(a,b,c) (F * c * q(a,b));
-D = @(a,b,c) (F * CD(c) * q(a,b));
+x = state(1);
+h = state(2);
+v = state(3);
+gamma = state(4);
+%
+%
 
-dx = v * cos(gamma);
-dh = v * sin(gamma);
-dv = 1/m * (T(t) - D(v,h,CL(t)) - m*g*sin(gamma));
-dgamma = 1 / (m*v) * (L(v,h,CL(t)) - m*g*cos(gamma));
+y(1) = v * cos(gamma);
+y(2) = v * sin(gamma);
+y(3) = 1/param.m * (T - D(v,h,CL) - param.m * param.g*sin(gamma));
+y(4) = 1 / (param.m *v) * (L(v,h,CL) - param.m * param.g*cos(gamma));

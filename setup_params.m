@@ -1,10 +1,16 @@
-g = 9.81;
-tf = 1800;
-CD0 = 0.032;
-AR = 7.5;
-e = 0.8;
-F = 845;
-m = 276800;
-Tmax = 1260000;
-CLmin = 0;
-CLmax = 1.48;
+function param = setup_params()
+
+param.g = 9.81;
+param.tf = 1800;
+param.CD0 = 0.032;
+param.AR = 7.5;
+param.e = 0.8;
+param.F = 845;
+param.m = 276800;
+param.Tmax = 1260000;
+param.CLmin = 0;
+param.CLmax = 1.48;
+
+param.k = 1 / (pi * param.e * param.AR);
+param.alpha = 1.247015;
+param.beta = 0.000104;
