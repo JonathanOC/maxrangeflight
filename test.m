@@ -10,12 +10,10 @@ ta = 0;
 te = 60;
 N = 3e4; 
 
-toff = 5;
-
 T = @(t) param.Tmax;
 CL = @(t) param.CLmax/9;
 
-func = @(t,state) f_plane(t, state, T(t), CL(t));%CLtest(t, toff));
+func = @(t,state) f_plane(t, state, T(t), CL(t));
 
 [yres, tres] = explEuler(func, ya, ta, te, N);
 subplot(1,4,1);
@@ -37,3 +35,6 @@ ylabel('gamma');
 
 figure();
 plot(yres(1,:), yres(2,:));
+
+
+
