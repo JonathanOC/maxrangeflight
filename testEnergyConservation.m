@@ -27,3 +27,4 @@ drag = D(yres(3,:),yres(2,:),CL(ind));
 thrust = param.CLmax/9*ones(1,N);
 
 P = energyConservation(ind, dx, dv, dh, thrust, drag);
+plot(tres(1:end-1),P)
