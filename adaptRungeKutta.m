@@ -13,7 +13,7 @@ i=1;
 k_3 = zeros(length(x0), length(b_1));
 k_4 = zeros(length(x0), length(b_2));
 
-while (t<te)
+while (true)
     if (te < t + h)
         h = te - t;
     end
@@ -48,8 +48,12 @@ while (t<te)
         i = i + 1;
     else if (dmax < d)
             h = 0.8 * h;
-        else 
-                h = 1.2 * h;
+        else
+            if (abs(t+h- te)<tol)
+                break
+            else 
+                h = 1.2 *h;
+            end
         end
     end
     
