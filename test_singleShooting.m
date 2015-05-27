@@ -7,6 +7,6 @@ te = 1;
 y_start_est = [4;-5];
 %ya = y(0);
 %ye = y(1);
-r = @(y, alpha, beta) [alpha-4; 5*(beta(1)-1) - beta(2)];
+r = @(y, alpha, beta) [4-alpha; 5*(beta(1)-1) - beta(2)];
 
 singleShooting(y_start_est, r, g, ta, te);
