@@ -37,7 +37,7 @@ c_2 = [0 0.5 0.5 1]';
 ta=0;
 te=10;
 figure(1);
-[yres, tres] = adaptRungeKutta(f1, y01, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+[yres, tres] = genericAdaptRungeKutta(f1, y01, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
 disp('example 1 finished')
 plot(yres(1,:), yres(2,:));
 hold on;
@@ -51,7 +51,7 @@ hold off;
 ta=0;
 te=10;
 figure(2);
-[yres, tres] = adaptRungeKutta(f2, y02, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+[yres, tres] = genericAdaptRungeKutta(f2, y02, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
 disp('example 2 finished')
 plot(tres, yres);
 hold on;
@@ -63,7 +63,7 @@ hold off;
 ta=0;
 te=3;
 figure(3);
-[yres, tres] = adaptRungeKutta(f3, y03, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+[yres, tres] = genericAdaptRungeKutta(f3, y03, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
 disp('example 3 finished')
 ya = ya3(tres');
 

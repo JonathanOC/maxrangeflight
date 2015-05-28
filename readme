@@ -1,0 +1,11 @@
+Neue Struktur im Projektordner!
+Bitte um Einhaltung, wir haben folgende subfolder angelegt:
+maxrangeflight 
+-	lib_ODE: alle allgemeinen Methoden zur Lösung von ODEs
+	-	test: die dazugehörigen test files
+-	lib: alle anderen allgemeinen Methoden, z.B. Newton etc.
+	-	test: dazu gehörige test files
+-	project_application: die Anwendung der Methoden auf das Projekt
+	-	params: alle Parametersetzungen, rho, CD, ...
+-	documentation: pdfs, papers usw...
+

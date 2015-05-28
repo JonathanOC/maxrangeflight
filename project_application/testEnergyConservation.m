@@ -16,7 +16,7 @@ CL = @(t) param.CLmax/9;
 
 func = @(t,state) f_plane(t, state, T(t), CL(t));
 
-[yres, tres] = explEuler(func, ya, ta, te, N);
+[yres, tres] = implEuler(func, ya, ta, te, N);
 
 ind = 1:N;
 dyres = (yres(:,2:end) - yres(:,1:N))/dt;
