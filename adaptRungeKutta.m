@@ -1,4 +1,4 @@
-function [x, t] = adaptRungeKutta(f, x0, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2)
+function [x, tres] = adaptRungeKutta(f, x0, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2)
 %A_i, b_i, c_i correspond to i+2 RungeKutta methods, i=1,2
 % 1st step
 t = ta;
@@ -6,7 +6,7 @@ x = x0;
 h = h0;
 dmin = 1e-5;
 dmax = 1e-1;
-
+tres(1)=ta;
 x(:,1) = x0;
 tol = 1e-6;
 i=1;
@@ -23,7 +23,7 @@ while (true)
             kNew_4(:,j) = f(t + c_2(j) * h, x(:,i) + h * k_4 * (A_2(j,:)'));
         end
         
-        if(max(abs(k_4 - kNew_4)) < tol)
+        if(max(norm(k_4 - kNew_4)) < tol)
             break;
         end
         k_4 = kNew_4;
@@ -44,6 +44,7 @@ while (true)
     if ((dmin <= d) && (d <= dmax))
         %h nehmen
         t = t+ h;
+        tres(i+1)=t;
         x(:,i+1) = x(:,i) + h * k_3 * b_1;
         i = i + 1;
     else if (dmax < d)

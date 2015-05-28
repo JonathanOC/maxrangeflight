@@ -17,7 +17,7 @@ y02 = 1;
 
 %System
 f3 = @(t, y) [y(2) - y(3), -2*y(1) + 3*y(2) - y(3), -y(1) + y(2) + y(3)]';
-ya3 =  @(t) [exp(t) - 4*t.*exp(t), exp(t) - 4*t.*exp(t) - 2*exp(2*t), 4*t.*exp(t) - 2*exp(2*t)]';
+ya3 =  @(t) [exp(t) - 4*t.*exp(t), exp(t) - 4*t.*exp(t) - 2*exp(2*t), 4*exp(t) - 2*exp(2*t)]';
 y03 = [1 -1 -2]';
 
 
@@ -38,28 +38,35 @@ ta=0;
 te=10;
 figure(1);
 [yres, tres] = adaptRungeKutta(f1, y01, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+disp('example 1 finished')
 plot(yres(1,:), yres(2,:));
 hold on;
 ya = ya1(tres');
 plot(ya(1,:), ya(2,:), 'r--');
 hold off;
 
+
+
 %Nicht-autonom
 ta=0;
 te=10;
 figure(2);
 [yres, tres] = adaptRungeKutta(f2, y02, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+disp('example 2 finished')
 plot(tres, yres);
 hold on;
 plot(tres,ya2(tres), 'r--');
 hold off;
 
+
 %System
 ta=0;
 te=3;
 figure(3);
-[yres, tres] = adaptRungeKutta(f1, y03, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+[yres, tres] = adaptRungeKutta(f3, y03, ta, te, h0, A_1, b_1, c_1, A_2, b_2, c_2);
+disp('example 3 finished')
 ya = ya3(tres');
+
 
 for i=1:3
     subplot(1,3,i);

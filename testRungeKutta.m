@@ -17,9 +17,8 @@ y02 = 1;
 
 %System
 f3 = @(t, y) [y(2) - y(3), -2*y(1) + 3*y(2) - y(3), -y(1) + y(2) + y(3)]';
-ya3 =  @(t) [exp(t) - 4*t.*exp(t), exp(t) - 4*t.*exp(t) - 2*exp(2*t), 4*t.*exp(t) - 2*exp(2*t)]';
+ya3 =  @(t) [exp(t) - 4*t.*exp(t), exp(t) - 4*t.*exp(t) - 2*exp(2*t), 4*exp(t) - 2*exp(2*t)]';
 y03 = [1 -1 -2]';
-
 
 N = 1e4;  
 yres = zeros(2, N);
