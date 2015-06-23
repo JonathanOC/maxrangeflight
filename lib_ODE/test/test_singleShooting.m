@@ -9,4 +9,5 @@ y_start_est = [4;-5];
 %ye = y(1);
 r = @(y, alpha, beta) [4-alpha; 5*(beta(1)-1) - beta(2)];
 
+cd ..;
 singleShooting(y_start_est, r, g, ta, te);
